@@ -1,0 +1,27 @@
+def rotateLeft(d, arr):
+    # Write your code here
+    l = len(arr)
+    d = d % l
+    g_c_d = gcd(d,l)
+    
+    for i in range(g_c_d):
+        temp = arr[i]
+        j = i
+        
+        while 1:
+            k = j + d
+            if k >= l:
+                k = k - l
+            if k == i:
+                break
+            arr[j] = arr[k]
+            j = k
+            arr[j] = temp
+            
+    return arr
+        
+def gcd(a,b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
